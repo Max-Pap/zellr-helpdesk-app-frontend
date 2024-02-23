@@ -1,0 +1,15 @@
+@import "../../styles/utils/mixins.scss";
+@import "../../styles/utils/colors.scss";
+
+.chatList {
+  height: calc(100vh - 60px);
+  background-color: #ffffff;
+  max-width: 35%;
+  min-width: 35%;
+
+  &__list {
+    height: calc(100vh - 120px);
+
+    overflow-y: scroll;
+  }
+}

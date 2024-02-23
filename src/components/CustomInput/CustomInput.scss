@@ -1,0 +1,58 @@
+@import "../../styles/utils/mixins.scss";
+@import "../../styles/utils/colors.scss";
+
+.customInput {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  position: relative;
+
+  margin-bottom: 25px;
+
+  &__title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #000;
+
+    margin-bottom: 5px;
+  }
+
+  &__input {
+    position: relative;
+  }
+
+  &__field {
+    padding: 20px 25px 20px 10px;
+    border: 0;
+    border-radius: 5px;
+    outline: none;
+    width: 100%;
+    height: 25px;
+    font-size: 14px;
+    border: 1px solid #000;
+
+    &--error {
+      background-color: #f9c9c9;
+    }
+  }
+
+  &__clear {
+    position: absolute;
+    background-color: $cancel-color;
+    width: 20px;
+    height: 20px;
+    border: 0;
+    border-radius: 50px;
+    right: 10px;
+    bottom: 10px;
+    cursor: pointer;
+  }
+
+  &__warning {
+    position: absolute;
+    bottom: -20px;
+    left: 0;
+    font-size: 14px;
+    color: $cancel-color;
+  }
+}

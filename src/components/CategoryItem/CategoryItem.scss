@@ -1,0 +1,28 @@
+@import "../../styles/utils/mixins.scss";
+@import "../../styles/utils/colors.scss";
+
+.categoryItem {
+  padding: 10px;
+  border: 2px solid $main-grey;
+  cursor: pointer;
+
+  margin-bottom: 10px;
+
+  &:hover {
+    color: #fff;
+    background-color: $main-blue;
+    border: 2px solid $main-blue;
+  }
+
+  &__title {
+    font-weight: 600;
+    font-size: 20px;
+
+    margin-bottom: 10px;
+  }
+
+  &__description {
+    font-style: italic;
+    font-size: 14px;
+  }
+}

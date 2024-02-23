@@ -1,0 +1,18 @@
+@import "../../styles/utils/mixins.scss";
+@import "../../styles/utils/colors.scss";
+
+.checkbox {
+  display: flex;
+  cursor: pointer;
+  gap: 10px;
+
+  margin-bottom: 15px;
+
+  &__input {
+    width: 25px;
+  }
+
+  &__label {
+    font-size: 18px;
+  }
+}

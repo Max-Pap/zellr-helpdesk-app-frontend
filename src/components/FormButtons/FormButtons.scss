@@ -1,0 +1,32 @@
+@import "../../styles/utils/mixins.scss";
+@import "../../styles/utils/colors.scss";
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+
+  &__button {
+    width: 35%;
+    height: 40px;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 16px;
+  }
+
+  &__red {
+    background-color: $cancel-color;
+
+    &:hover {
+      background-color: $cancel-color-hv;
+    }
+  }
+
+  &__green {
+    background-color: $main-green;
+
+    &:hover {
+      background-color: $main-green-hv;
+    }
+  }
+}

@@ -1,0 +1,20 @@
+@import "../../styles/utils/mixins.scss";
+@import "../../styles/utils/colors.scss";
+
+.newChatForm {
+  padding: 20px 10px;
+
+  width: 500px;
+  background-color: #fafafa;
+
+  box-shadow: 0 0 10px rgb(107, 107, 107);
+  border-radius: 10px;
+
+  &__heading {
+    text-align: center;
+    font-weight: 600;
+    font-size: 18px;
+
+    margin-bottom: 20px;
+  }
+}

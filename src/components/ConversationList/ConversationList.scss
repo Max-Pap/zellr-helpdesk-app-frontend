@@ -1,0 +1,26 @@
+@import "../../styles/utils/mixins.scss";
+@import "../../styles/utils/colors.scss";
+
+.conversationList {
+  width: 500px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgb(107, 107, 107);
+  border-radius: 10px;
+
+  &__heading {
+    padding: 10px 15px;
+    background-color: #f7f7f7;
+    border-bottom: 1px solid $main-grey;
+    border-radius: 10px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+
+    max-height: 250px;
+    overflow: scroll;
+  }
+}

@@ -1,0 +1,43 @@
+@import "../../styles/utils/mixins.scss";
+@import "../../styles/utils/colors.scss";
+
+.taskItem {
+  border: 1px solid $secondary-grey;
+
+  &:hover {
+    background-color: $secondary-grey;
+    cursor: pointer;
+  }
+
+  &__priority {
+    display: flex;
+  }
+
+  &__priorityButton {
+    border: 0;
+    width: 35px;
+    height: 35px;
+    background-color: unset;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    &--up {
+      background-image: url("../../assets/icons/upArrow.svg");
+    }
+
+    &--down {
+      background-image: url("../../assets/icons/upArrow.svg");
+      transform: rotate(180deg);
+    }
+  }
+
+  &__cell {
+    border: 0;
+    padding: 5px 10px;
+    width: 10%;
+  }
+
+  &__title {
+    width: 30%;
+  }
+}

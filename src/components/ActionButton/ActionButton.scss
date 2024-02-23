@@ -1,0 +1,24 @@
+@import "../../styles/utils/mixins.scss";
+@import "../../styles/utils/colors.scss";
+
+.actionButton {
+  background-color: unset;
+  height: 50px;
+  width: 80px;
+  border: 0;
+  cursor: pointer;
+
+    &:hover {
+      background-color: $secondary-grey;
+      border-radius: 5px;
+    }
+    
+  &__icon {
+    width: 25px;
+  }
+
+  &__label {
+    font-size: 12px;
+    color: $accent-color;
+  }
+}

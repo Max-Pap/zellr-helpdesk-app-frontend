@@ -1,0 +1,48 @@
+@import "../../styles/utils/mixins.scss";
+@import "../../styles/utils/colors.scss";
+
+.chatItem {
+  padding: 10px;
+  border-bottom: 1px solid $main-grey;
+  height: 100px;
+  cursor: pointer;
+
+  &--active {
+    background-color: $main-blue;
+    color: #fff;
+  }
+
+  &__store {
+    color: #d6d6d6;
+    font-weight: 600;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+  }
+
+  &__title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 50%;
+    font-size: 14px;
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  &__timestamp {
+    font-size: 16px;
+    color: #d6d6d6;
+  }
+
+  &__description {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 80%;
+    font-size: 14px;
+  }
+}

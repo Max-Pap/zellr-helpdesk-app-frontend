@@ -1,0 +1,38 @@
+@import "../../styles/utils/mixins.scss";
+@import "../../styles/utils/colors.scss";
+
+.message {
+  width: max-content;
+  max-width: 75%;
+  min-width: 150px;
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 10px;
+  position: relative;
+  white-space: pre-wrap;
+
+  margin-bottom: 10px;
+
+  &--admin {
+    align-self: flex-end;
+    background: rgb(5, 110, 195);
+  }
+
+  &--user {
+    align-self: flex-start;
+    background: rgba(3, 151, 117, 0.983);
+  }
+
+  &__content {
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+
+  &__timeAndSender {
+    color: #fff;
+    font-size: 10px;
+    position: absolute;
+    right: 10px;
+    bottom: 2px;
+  }
+}

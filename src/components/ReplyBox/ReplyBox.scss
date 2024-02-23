@@ -1,0 +1,84 @@
+@import "../../styles/utils/mixins.scss";
+@import "../../styles/utils/colors.scss";
+
+.replyBox {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  height: min-content;
+  gap: 5px;
+  min-height: 60px;
+
+  max-height: 80%;
+  min-width: 100%;
+  max-width: 100%;
+  background-color: $main-grey;
+  padding: 10px;
+
+  &__input {
+    position: relative;
+    min-height: 60px;
+    min-width: 80%;
+    max-width: 80%;
+    overflow: scroll;
+  }
+
+  &__inputField {
+    padding: 10px 30px 10px 15px;
+    outline: none;
+    font-size: 16px;
+    height: 30px;
+    min-height: 60px;
+    max-height: 500px;
+    min-width: 100%;
+    max-width: 100%;
+    resize: none;
+    border: 1px solid $main-blue;
+    border-radius: 10px;
+    overflow: scroll;
+  }
+
+  &__clear {
+    position: absolute;
+    background-color: $cancel-color;
+    width: 20px;
+    height: 20px;
+    border: 0;
+    border-radius: 50px;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+  }
+
+  &__actions {
+    width: 100%;
+
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+  }
+
+  &__button {
+    width: 100%;
+    height: 25px;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 16px;
+  }
+
+  &__send {
+    background-color: $main-blue;
+
+    &:hover {
+      background-color: $main-blue-hv;
+    }
+  }
+
+  &__attachImage {
+    background-color: $main-green;
+
+    &:hover {
+      background-color: $main-green-hv;
+    }
+  }
+}

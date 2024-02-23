@@ -1,0 +1,31 @@
+@import "../../styles/utils/mixins.scss";
+@import "../../styles/utils/colors.scss";
+
+.tasks {
+  max-height: calc(100vh - 60px);
+  background-color: #fff;
+  width: 100%;
+
+  &__header {
+    display: flex;
+    height: 60px;
+    background-color: #043d5e;
+  }
+
+  &__filter {
+    width: 35%;
+    background-color: #818607;
+  }
+
+  &__actions {
+    width: 65%;
+    background-color: #49055c;
+  }
+
+  &__list {
+    background-color: #fff;
+  }
+}
+
+
+

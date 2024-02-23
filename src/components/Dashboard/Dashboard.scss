@@ -1,0 +1,21 @@
+@import "../../styles/utils/mixins.scss";
+@import "../../styles/utils/colors.scss";
+
+.dashboard {
+  min-height: calc(100vh - 60px);
+  background-color: $main-grey;
+  display: flex;
+  flex-direction: row;
+
+  &__buttons {
+    padding: 60px 0;
+    width: 10%;
+
+    user-select: none;
+  }
+
+  &__outlet {
+    max-width: 90%;
+    width: 90%;
+  }
+}
