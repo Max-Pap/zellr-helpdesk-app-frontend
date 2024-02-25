@@ -89,7 +89,7 @@ export const ChatWindow: React.FC = () => {
         <div ref={chatboxBottom} />
       </div>
 
-      <ReplyBox sendAction={handleSendMessage} />
+      {chatId && <ReplyBox sendAction={handleSendMessage} />}
     </div>
   );
 };
