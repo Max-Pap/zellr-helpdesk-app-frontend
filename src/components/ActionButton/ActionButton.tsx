@@ -13,7 +13,11 @@ export const ActionButton: React.FC<Props> = ({
   imgSrc,
 }) => (
   <button className="actionButton" onClick={action}>
-    <img src={imgSrc} alt="" className="actionButton__icon" />
+    <img
+      src={imgSrc}
+      alt={actionName}
+      className="actionButton__icon"
+    />
 
     <p className="actionButton__label">{actionName}</p>
   </button>

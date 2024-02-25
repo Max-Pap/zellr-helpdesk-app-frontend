@@ -37,7 +37,7 @@ export const CustomInput: React.FC<Props> = ({
       )}
 
       {value !== "" && errorShortValue && (
-        <p className="initialMessage__warning">{errorShortValue}</p>
+        <p className="customInput__warning">{errorShortValue}</p>
       )}
     </div>
   </div>

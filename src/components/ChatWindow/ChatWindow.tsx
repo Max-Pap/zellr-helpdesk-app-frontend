@@ -48,13 +48,10 @@ export const ChatWindow: React.FC = () => {
     chatboxBottom.current?.scrollIntoView();
   }, [messages]);
 
-  const sendMessage = () => {
-    if (content === "") {
+  const handleSendMessage = () => {
+    if (content.trim() === "") {
       return;
     }
-
-    adjustHeight(textbox);
-    chatboxBottom.current?.scrollTo();
 
     setMessages((messages) => [
       ...(messages || []),
@@ -64,10 +61,12 @@ export const ChatWindow: React.FC = () => {
         // sender: "user",
         sender: "admin",
         name: "Max",
-        content: content,
+        content: content.trim(),
         createdAt: new Date("1995-12-17T03:24:00"),
       },
     ]);
+
+    adjustHeight(textbox);
 
     dispatch(resetMessageContent());
   };
@@ -90,7 +89,7 @@ export const ChatWindow: React.FC = () => {
         <div ref={chatboxBottom} />
       </div>
 
-      <ReplyBox sendAction={sendMessage} />
+      <ReplyBox sendAction={handleSendMessage} />
     </div>
   );
 };

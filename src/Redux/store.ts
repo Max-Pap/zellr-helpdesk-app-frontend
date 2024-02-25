@@ -1,7 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import { CategoryApi } from "./RTK_Query/category.service";
-import { viewReducer } from "./Slices/view.slice";
 import { chatQueryReducer } from "./Slices/chatSearch.slice";
 import { isCategoryModalOpenReducer } from "./Slices/isCategoryModalOpen";
 import { isNewChatModalOpenReducer } from "./Slices/isNewChatModalOpen";
@@ -19,7 +18,6 @@ import { messageContentReducer } from "./Slices/messageContent.slice";
 
 export const store = configureStore({
   reducer: {
-    view: viewReducer,
     chatQuery: chatQueryReducer,
     isCategoryModalOpen: isCategoryModalOpenReducer,
     isNewChatModalOpen: isNewChatModalOpenReducer,

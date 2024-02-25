@@ -13,11 +13,7 @@ import { CustomInput } from "../CustomInput/CustomInput";
 import { CustomTextarea } from "../CustomTextarea/CustomTextarea";
 import { FormButtons } from "../FormButtons/FormButtons";
 
-type Props = {
-  newChatRef: React.RefObject<HTMLDivElement>;
-};
-
-export const NewChatForm: React.FC<Props> = ({ newChatRef }) => {
+export const NewChatForm: React.FC = () => {
   const subject = useAppSelector((state) => state.subject.value);
   const initialMessage = useAppSelector((state) => state.initialMessage.value);
   const dispatch = useAppDispatch();
@@ -30,7 +26,7 @@ export const NewChatForm: React.FC<Props> = ({ newChatRef }) => {
     shortInitialMessage: "",
   };
 
-  const [error, setError] = useState(noErrors);
+  const [errors, setErrors] = useState(noErrors);
 
   const handleAddSubject = (subject: string) => {
     dispatch(setSubject(subject));
@@ -40,11 +36,11 @@ export const NewChatForm: React.FC<Props> = ({ newChatRef }) => {
     dispatch(resetSubject());
   };
 
-  const handleAddInitialMessage = (subject: string) => {
-    dispatch(setInitialMessage(subject));
+  const handleAddMessage = (message: string) => {
+    dispatch(setInitialMessage(message));
   };
 
-  const handleClearInitialMessage = () => {
+  const handleClearMessage = () => {
     dispatch(resetInitialMessage());
   };
 
@@ -56,46 +52,24 @@ export const NewChatForm: React.FC<Props> = ({ newChatRef }) => {
   };
 
   const startNewChat = () => {
-    const anyError =
-      subject === "" ||
-      subject.length < 5 ||
-      initialMessage === "" ||
-      initialMessage.length < 5;
-
-    if (anyError) {
-      if (subject === "") {
-        setError((error) => ({
-          ...error,
-          noSubject: true,
-        }));
-      }
-
-      if (subject.length < 5) {
-        setError((error) => ({
-          ...error,
-          shortSubject: "The subject is too short",
-        }));
-      }
-
-      if (initialMessage === "") {
-        setError((error) => ({
-          ...error,
-          noInitialMessage: true,
-        }));
-      }
-
-      if (initialMessage.length < 5) {
-        setError((error) => ({
-          ...error,
-          shortInitialMessage: "The message is too short",
-        }));
-      }
+    const errors = {
+      noSubject: subject === "",
+      shortSubject: subject.length < 5
+      ? "The subject is too short"
+      : "",
+      noInitialMessage: initialMessage === "",
+      shortInitialMessage:
+        initialMessage.length < 5
+        ? "The message is too short"
+        : "",
+    };
+  
+    if (Object.values(errors).some((error) => error)) {
+      setErrors(errors);
 
       setTimeout(() => {
-        setError(noErrors);
+        setErrors(noErrors);
       }, 2000);
-
-      console.log(error);
 
       return;
     }
@@ -109,23 +83,23 @@ export const NewChatForm: React.FC<Props> = ({ newChatRef }) => {
   };
 
   return (
-    <div className="newChatForm" ref={newChatRef}>
+    <div className="newChatForm">
       <CustomInput
         title="Please specify the subject of your new conversation"
         value={subject}
         setAction={handleAddSubject}
         clearAction={handleClearSubject}
-        errorNoValue={error.noSubject}
-        errorShortValue={error.shortSubject}
+        errorNoValue={errors.noSubject}
+        errorShortValue={errors.shortSubject}
       />
 
       <CustomTextarea
         title="Please describe your request or the issue you faced"
         value={initialMessage}
-        setAction={handleAddInitialMessage}
-        clearAction={handleClearInitialMessage}
-        errorNoValue={error.noInitialMessage}
-        errorShortValue={error.shortInitialMessage}
+        setAction={handleAddMessage}
+        clearAction={handleClearMessage}
+        errorNoValue={errors.noInitialMessage}
+        errorShortValue={errors.shortInitialMessage}
       />
 
       <FormButtons

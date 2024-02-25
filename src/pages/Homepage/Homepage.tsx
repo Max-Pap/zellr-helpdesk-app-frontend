@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useRef } from "react";
 import "./Homepage.scss";
 
 import logo from "../../assets/images/KirppariKalleFullLogo.png";
@@ -14,6 +14,7 @@ import { testChats } from "../../data/testChats";
 import { testCategories } from "../../data/testCategories";
 import { Modal } from "../../components/Modal/Modal";
 import { NewChatForm } from "../../components/NewChatForm/NewChatForm";
+import { useClickOutside } from "../../hooks/useClickOutside";
 
 export const Homepage: React.FC = () => {
   const isCategoryModalOpen = useAppSelector(
@@ -25,7 +26,7 @@ export const Homepage: React.FC = () => {
   const dispatch = useAppDispatch();
 
   const categoryModalRef = useRef<HTMLDivElement>(null);
-  const newChatModalRef = useRef<HTMLDivElement>(null);
+  useClickOutside(categoryModalRef, () => dispatch(setIsCategoryModalClose()));
 
   // const { data: categories, isSuccess } = useGetAllCategoriesQuery();
 
@@ -33,24 +34,6 @@ export const Homepage: React.FC = () => {
     event.stopPropagation();
     dispatch(setIsCategoryModalOpen());
   };
-
-  const handleClickOutside: EventListener = (event) => {
-    const targetNode = event.target as Node;
-    if (
-      categoryModalRef.current &&
-      !categoryModalRef.current.contains(targetNode)
-    ) {
-      dispatch(setIsCategoryModalClose());
-    }
-  };
-
-  useEffect(() => {
-    document.addEventListener("click", handleClickOutside);
-
-    return () => {
-      document.removeEventListener("click", handleClickOutside);
-    };
-  }, []);
 
   return (
     <div className="homepage">
@@ -67,13 +50,7 @@ export const Homepage: React.FC = () => {
           />
         )}
 
-        {isNewChatModalOpen && (
-          <Modal 
-            children={
-              <NewChatForm newChatRef={newChatModalRef} />
-            }
-          />
-        )}
+        {isNewChatModalOpen && <Modal children={<NewChatForm />} />}
 
         <img src={logo} alt="KirppariKalle Logo" className="homepage__logo" />
 

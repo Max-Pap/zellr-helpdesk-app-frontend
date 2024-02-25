@@ -5,10 +5,8 @@ import chatsIconGrey from "../../assets/icons/chats_icon-grey.svg";
 import tasksIconBlue from "../../assets/icons/tasks_icon.svg";
 import tasksIconGrey from "../../assets/icons/tasks_icon-grey.svg";
 
-import { useAppDispatch, useAppSelector } from "../../Redux/store";
-import { setView } from "../../Redux/Slices/view.slice";
-import { Outlet, useLocation } from "react-router-dom";
-import { useEffect } from "react";
+import { useAppSelector } from "../../Redux/store";
+import { Outlet } from "react-router-dom";
 import { AddTaskForm } from "../AddTaskForm/AddTaskForm";
 import { AddNoteForm } from "../AddNoteForm/AddNoteForm";
 import { AddTagForm } from "../AddTagForm/AddTagForm";
@@ -29,18 +27,6 @@ export const Dashboard = () => {
   const isStatusModalShown = useAppSelector(
     (state) => state.isStatusModalShown.value
   );
-  const view = useAppSelector((state) => state.view.value);
-  const location = useLocation();
-  const dispatch = useAppDispatch();
-
-  useEffect(() => {
-    const refreshView = location.pathname;
-    dispatch(setView(refreshView.slice(1)));
-  }, []);
-
-  const changeView = (option: string) => {
-    dispatch(setView(option));
-  };
 
   return (
     <div className="dashboard">
@@ -54,19 +40,15 @@ export const Dashboard = () => {
 
       <div className="dashboard__buttons">
         <CustomNavLink
-          title={"Conversations"}
-          currentView={view}
-          viewToSet={"chats"}
-          changeViewAction={changeView}
+          title="Conversations"
+          viewToSet="/chats"
           activeImg={chatsIconBlue}
           inActiveImg={chatsIconGrey}
         />
 
         <CustomNavLink
-          title={"Tasks"}
-          currentView={view}
-          viewToSet={"tasks"}
-          changeViewAction={changeView}
+          title="Tasks"
+          viewToSet="/tasks"
           activeImg={tasksIconBlue}
           inActiveImg={tasksIconGrey}
         />

@@ -3,18 +3,18 @@ import "./TaskTable.scss";
 
 export const TaskTable: React.FC = () => {
   return (
-    <div className="block">
+    <section className="taskTableContainer">
       <table className="taskTable">
         <thead className="taskTable__head">
           <tr className="taskTable__headRow">
-            <td className="taskTable__cell taskTable__title">Title</td>
-            <td className="taskTable__cell">Assigned to</td>
-            <td className="taskTable__cell">Tags</td>
-            <td className="taskTable__cell">Created</td>
-            <td className="taskTable__cell">Acepted</td>
-            <td className="taskTable__cell">Estimation</td>
-            <td className="taskTable__cell">Estimated completion</td>
-            <td className="taskTable__cell"></td>
+            <th className="taskTable__cell taskTable__title">Title</th>
+            <th className="taskTable__cell">Assigned to</th>
+            <th className="taskTable__cell">Tags</th>
+            <th className="taskTable__cell">Created</th>
+            <th className="taskTable__cell">Acepted</th>
+            <th className="taskTable__cell">Estimation</th>
+            <th className="taskTable__cell">Estimated completion</th>
+            <th className="taskTable__cell"></th>
           </tr>
         </thead>
 
@@ -60,8 +60,12 @@ export const TaskTable: React.FC = () => {
           <TaskItem />
           <TaskItem />
           <TaskItem />
+          <TaskItem />
+          <TaskItem />
+          <TaskItem />
+
         </tbody>
       </table>
-    </div>
+    </section>
   );
 };

@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import "./ReplyBox.scss";
 import { useAppDispatch, useAppSelector } from "../../Redux/store";
 import {
@@ -16,7 +16,7 @@ export const ReplyBox: React.FC<Props> = ({ sendAction }) => {
   const content = useAppSelector((state) => state.messageContent.value);
   const dispatch = useAppDispatch();
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (textbox.current) {
       adjustHeight(textbox);
     }
@@ -26,7 +26,7 @@ export const ReplyBox: React.FC<Props> = ({ sendAction }) => {
     adjustHeight(textbox);
   };
 
-  const handleTypeInMessage = (text: string) => {
+  const handleTypeMessage = (text: string) => {
     handleKeyDown();
 
     dispatch(setMessageContent(text));
@@ -43,7 +43,7 @@ export const ReplyBox: React.FC<Props> = ({ sendAction }) => {
           className="replyBox__inputField"
           ref={textbox}
           value={content}
-          onChange={(e) => handleTypeInMessage(e.target.value)}
+          onChange={(e) => handleTypeMessage(e.target.value)}
         />
         {content !== "" && (
           <button className="replyBox__clear" onClick={handleClearContent} />
@@ -53,6 +53,7 @@ export const ReplyBox: React.FC<Props> = ({ sendAction }) => {
       <div className="replyBox__actions">
         <button
           className="replyBox__button replyBox__send"
+          aria-label="Send message"
           onClick={sendAction}
         >
           Send
@@ -60,6 +61,7 @@ export const ReplyBox: React.FC<Props> = ({ sendAction }) => {
 
         <button
           className="replyBox__button replyBox__attachImage"
+          aria-label="Attach image"
           // onClick={handleCancel}
         >
           Attach image

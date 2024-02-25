@@ -21,6 +21,8 @@
     min-width: 80%;
     max-width: 80%;
     overflow: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
   }
 
   &__inputField {
@@ -36,6 +38,7 @@
     border: 1px solid $main-blue;
     border-radius: 10px;
     overflow: scroll;
+    overflow-x: hidden;
   }
 
   &__clear {

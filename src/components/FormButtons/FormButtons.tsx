@@ -3,21 +3,23 @@ import "./FormButtons.scss";
 
 type Props = {
   redTitle?: string;
-  redAction: () => void;
-  greenTitle: string;
+  redAction?: () => void;
+  greenTitle?: string;
   greenAction?: () => void;
 };
 
 export const FormButtons: React.FC<Props> = ({
-  redTitle,
+  redTitle = "Cancel",
   redAction,
-  greenTitle,
+  greenTitle = "Ok",
   greenAction,
 }) => (
   <div className="buttons">
-    <button className="buttons__button buttons__red" onClick={redAction}>
-      {redTitle}
-    </button>
+    {redTitle && redAction && (
+      <button className="buttons__button buttons__red" onClick={redAction}>
+        {redTitle}
+      </button>
+    )}
 
     <button className="buttons__button buttons__green" onClick={greenAction}>
       {greenTitle}

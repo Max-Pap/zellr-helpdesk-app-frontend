@@ -15,21 +15,19 @@ type Props = {
   message: Message;
 };
 
-export const Message: React.FC<Props> = ({ message }) => {
-  const { sender, name, content, createdAt } = message;
+export const Message: React.FC<Props> = ({
+  message: { sender, name, content, createdAt },
+}) => (
+  <div
+    className={cn("message", {
+      "message--admin": sender === "admin",
+      "message--user": sender === "user",
+    })}
+  >
+    <p className="message__content">{content}</p>
 
-  return (
-    <div
-      className={cn("message", {
-        "message--admin": sender === "admin",
-        "message--user": sender === "user",
-      })}
-    >
-      <p className="message__content">{content}</p>
-
-      <p className="message__timeAndSender">
-        {`${handleGetTime(createdAt)}, ${name}`}
-      </p>
-    </div>
-  );
-};
+    <p className="message__timeAndSender">
+      {`${handleGetTime(createdAt)}, ${name}`}
+    </p>
+  </div>
+);
