@@ -8,6 +8,8 @@ import { ReplyBox } from "../ReplyBox/ReplyBox";
 import { useAppDispatch, useAppSelector } from "../../Redux/store";
 import { resetMessageContent } from "../../Redux/Slices/messageContent.slice";
 import { adjustHeight } from "../../helpers/adjustHeight";
+import { Quote } from "../Quote/Quote";
+import { testQuote } from "../../data/quote";
 // import { useGetAllMessagesQuery } from "../../Redux/RTK_Query/message.service";
 
 interface Message {
@@ -86,10 +88,15 @@ export const ChatWindow: React.FC = () => {
           <Message message={message} key={message.id} />
         ))}
 
+        <Quote quote={testQuote} />
+
         <div ref={chatboxBottom} />
       </div>
-
-      {chatId && <ReplyBox sendAction={handleSendMessage} />}
+      
+      {chatId && (
+        <ReplyBox sendAction={handleSendMessage} />
+      )}
+      
     </div>
   );
 };

@@ -1,0 +1,56 @@
+@import "../../styles/utils/mixins.scss";
+@import "../../styles/utils/colors.scss";
+
+.quote {
+  max-width: 40%;
+  min-width: 150px;
+  background-color: #ffffff;
+  color: #000000;
+  padding: 20px;
+  border-radius: 10px;
+  position: relative;
+  white-space: pre-wrap;
+
+  margin-bottom: 10px;
+
+  &__heading {
+    font-size: 30px;
+    font-weight: 600;
+    text-align: center;
+
+    margin-bottom: 10px;
+  }
+
+  &__description {
+    text-align: center;
+    font-size: 14px;
+    color: $accent-color;
+
+    margin-bottom: 25px;
+  }
+
+  &__body {
+    font-size: 22px;
+    overflow: hidden;
+    margin-bottom: 25px;
+  }
+
+  &__line {
+    display: flex;
+    gap: 25px;
+  }
+
+  &__title {
+    font-weight: 600;
+    min-width: 46%;
+    text-align: right;
+  }
+
+  &__content {
+    text-align: start;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 50%;
+  }
+}
