@@ -25,6 +25,6 @@ export interface Task {
   status: TaskStatus;
   acceptedAt: Date;
   createdAt: Date;
-  tags: Tag[];
-  assignedTo: User;
+  // tags: Tag[];
+  // assignedTo: User;
 }
