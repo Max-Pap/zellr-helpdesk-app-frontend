@@ -1,17 +1,17 @@
 import { Tag } from "./Tag";
 import { User } from "./User";
 
-const Statuses = {
-  new: 'Queued',
-  open: 'Processing',
-  toBeContinued: 'To be continued',
-  waitingForMoreInfo: 'Waiting for more info',
-  done: 'Done',
-  closed: 'Closed',
-  archived: 'Archived',
-} as const;
+// const Statuses = {
+//   new: 'Queued',
+//   open: 'Processing',
+//   toBeContinued: 'To be continued',
+//   waitingForMoreInfo: 'Waiting for more info',
+//   done: 'Done',
+//   closed: 'Closed',
+//   archived: 'Archived',
+// } as const;
 
-type TaskStatus = (typeof Statuses)[keyof typeof Statuses];
+// type TaskStatus = (typeof Statuses)[keyof typeof Statuses];
 
 export interface Task {
   id: number;
@@ -22,9 +22,9 @@ export interface Task {
   estimatedCompletion: string;
   deadline: Date;
   queueIndex: number;
-  status: TaskStatus;
+  status: string;
   acceptedAt: Date;
   createdAt: Date;
-  // tags: Tag[];
-  // assignedTo: User;
+  tags?: Tag[];
+  assignedTo?: User;
 }
