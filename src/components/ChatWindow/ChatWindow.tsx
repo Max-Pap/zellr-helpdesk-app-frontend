@@ -88,7 +88,8 @@ export const ChatWindow: React.FC = () => {
           <Message message={message} key={message.id} />
         ))}
 
-        <Quote quote={testQuote} />
+        {chatId && <Quote quote={testQuote} />}
+        
 
         <div ref={chatboxBottom} />
       </div>
